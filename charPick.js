@@ -66,7 +66,6 @@ function charPick() {
 
 function spin (charList, delay, totalLoops) {
     let randNum = Math.floor(Math.random() * charList.length);
-    console.log("charRoleResult", charRoleResult);
     charRoleResult.innerHTML = charList[randNum].role;
     charNameResult.innerHTML = charList[randNum].charName;
     
