@@ -1,4 +1,4 @@
-let allChar = [
+const allChar = [
     {role:"タンク", charName:"ラインハルト"},
     {role:"タンク", charName:"D.Va"},
     {role:"タンク", charName:"ウィンストン"},
@@ -43,18 +43,43 @@ let allChar = [
     {role:"サポート", charName:"ライフウィーバー"},
     {role:"サポート", charName:"ルシオ"}
 ];
-function charPick() {
-    let selectedRole = document.getElementById("roleSelect").value;
-    let filteredCharList = allChar;
-    if (selectedRole == "tank") {
-        filteredCharList = allChar.filter(char => char.role == "タンク");
-    } else if (selectedRole == "dmg") {
-        filteredCharList = allChar.filter(char => char.role == "ダメージ");
-    } else if (selectedRole == "sup") {
-        filteredCharList = allChar.filter(char => char.role == "サポート");
-    }
 
-    let randNum = Math.floor(Math.random() * filteredCharList.length);
-    document.getElementById("charRoleResult").innerHTML = filteredCharList[randNum].role;
-    document.getElementById("charNameResult").innerHTML = filteredCharList[randNum].charName;
+const charRoleResult = document.getElementById("charRoleResult");
+const charNameResult = document.getElementById("charNameResult");
+const maxLoops = 30;
+
+function charPick() {
+    const selectedRole = document.getElementById("roleSelect").value;
+    let charList = allChar;
+    let delay = 50;
+    let totalLoops = 0;
+    
+    if (selectedRole == "tank") {
+        charList = allChar.filter(char => char.role == "タンク");
+    } else if (selectedRole == "dmg") {
+        charList = allChar.filter(char => char.role == "ダメージ");
+    } else if (selectedRole == "sup") {
+        charList = allChar.filter(char => char.role == "サポート");
+    }
+    spin(charList, delay, totalLoops);
+}
+
+function spin (charList, delay, totalLoops) {
+    let randNum = Math.floor(Math.random() * charList.length);
+    console.log("charRoleResult", charRoleResult);
+    charRoleResult.innerHTML = charList[randNum].role;
+    charNameResult.innerHTML = charList[randNum].charName;
+    
+    let latest_randNum = randNum;
+    while (latest_randNum === randNum) {
+        randNum = Math.floor(Math.random() * charList.length);
+    }
+    totalLoops++;
+    if (totalLoops < maxLoops) {
+        delay += delay * 0.07;
+        setTimeout(spin, delay, charList, delay, totalLoops);
+    } else {
+        charRoleResult.innerHTML = charList[randNum].role;
+        charNameResult.innerHTML = charList[randNum].charName;
+    }
 }
