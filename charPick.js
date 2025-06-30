@@ -1,49 +1,11 @@
-const allChar = [
-    {role:"タンク", charName:"ラインハルト"},
-    {role:"タンク", charName:"D.Va"},
-    {role:"タンク", charName:"ウィンストン"},
-    {role:"タンク", charName:"オリーサ"},
-    {role:"タンク", charName:"ザリア"},
-    {role:"タンク", charName:"シグマ"},
-    {role:"タンク", charName:"ジャンカー・クイーン"},
-    {role:"タンク", charName:"ドゥームフィスト"},
-    {role:"タンク", charName:"ハザード"},
-    {role:"タンク", charName:"マウガ"},
-    {role:"タンク", charName:"ラマットラ"},
-    {role:"タンク", charName:"レッキングボール"},
-    {role:"タンク", charName:"ロードホッグ"},
-    {role:"ダメージ", charName:"アッシュ"},
-    {role:"ダメージ", charName:"ウィドウメイカー"},
-    {role:"ダメージ", charName:"エコー"},
-    {role:"ダメージ", charName:"フレイヤ"},
-    {role:"ダメージ", charName:"キャスディ"},
-    {role:"ダメージ", charName:"ゲンジ"},
-    {role:"ダメージ", charName:"シンメトラ"},
-    {role:"ダメージ", charName:"ジャンクラット"},
-    {role:"ダメージ", charName:"ソジョーン"},
-    {role:"ダメージ", charName:"ソルジャー76"},
-    {role:"ダメージ", charName:"ソンブラ"},
-    {role:"ダメージ", charName:"トールビョーン"},
-    {role:"ダメージ", charName:"トレーサー"},
-    {role:"ダメージ", charName:"ハンゾー"},
-    {role:"ダメージ", charName:"バスティオン"},
-    {role:"ダメージ", charName:"ファラ"},
-    {role:"ダメージ", charName:"ベンチャー"},
-    {role:"ダメージ", charName:"メイ"},
-    {role:"ダメージ", charName:"リーパー"},
-    {role:"サポート", charName:"アナ"},
-    {role:"サポート", charName:"イラリー"},
-    {role:"サポート", charName:"キリコ"},
-    {role:"サポート", charName:"ジュノ"},
-    {role:"サポート", charName:"ゼニヤッタ"},
-    {role:"サポート", charName:"バティスト"},
-    {role:"サポート", charName:"ブリギッテ"},
-    {role:"サポート", charName:"マーシー"},
-    {role:"サポート", charName:"モイラ"},
-    {role:"サポート", charName:"ライフウィーバー"},
-    {role:"サポート", charName:"ルシオ"}
-];
-
+let allChar = [];
+fetch('character.json')
+    .then(response => {
+        return response.json()
+    })
+    .then(data => {
+        allChar = data;
+    })
 const charRoleResult = document.getElementById("charRoleResult");
 const charNameResult = document.getElementById("charNameResult");
 const maxLoops = 30;
