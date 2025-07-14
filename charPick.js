@@ -42,5 +42,6 @@ function spin (charList, delay, totalLoops) {
     } else {
         charRoleResult.innerHTML = charList[randNum].role;
         charNameResult.innerHTML = charList[randNum].charName;
+        pickHistoryDisplay(charList[randNum].role, charList[randNum].charName);
     }
 }
