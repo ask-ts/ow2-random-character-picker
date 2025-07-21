@@ -13,3 +13,35 @@
 .history-char{
     width: 50%;
 }
+
+.result-area{
+    height: 50px;
+}
+
+.result-area.role{
+    width: 200px;
+    padding: 50px;
+    margin: 10px;
+}
+
+.result-area.character{
+    width: 350px;
+    padding: 50px;
+    margin: 10px;
+}
+
+.header-color{
+    background-color: #f99e1a;
+    color: #FFFFFF;
+}
+
+body{
+  font-family: "WDXL Lubrifont JP N", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+#pickButton{
+    width: 150px;
+    height: 50px;
+}
