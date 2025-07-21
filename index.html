@@ -6,25 +6,30 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link href="style.css" rel="stylesheet">
         <title>OW2ランダムキャラピッカー</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+JP+N&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="text-center"><h1>OW2ランダムキャラピッカー</h1></div>
+        <div class="text-center header-color"><h1>OW2ランダムキャラピッカー</h1></div>
         <div class="d-flex justify-content-center">
-            <div id="charRoleResult"></div>
+            <div class="d-flex result-area role justify-content-center align-items-center border border-4">
+                <span id="charRoleResult" class="fs-3 fw-bold">ロール</span>
+            </div>
+            <div class="d-flex result-area character justify-content-center align-items-center border border-4">
+                <span id="charNameResult" class="fs-3 fw-bold">キャラクター</span>
+            </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <div id="charNameResult"></div>
-        </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center m-3">
             <select id="roleSelect">
-                <option value="">全ロール</option>
+                <option value="">フレックス</option>
                 <option value="tank">タンク</option>
                 <option value="dmg">ダメージ</option>
                 <option value="sup">サポート</option>
             </select>
         </div>
         <div class="d-flex justify-content-center">
-            <button id="pickButton" class="btn btn-primary" type="button" onclick="charPick()">ピック！</button>
+            <button id="pickButton" class="btn btn-primary fs-3" type="button" onclick="charPick()">ピック！</button>
         </div>
         <div class="d-flex justify-content-center m-3">
             <div class="border border-3 p-2">
